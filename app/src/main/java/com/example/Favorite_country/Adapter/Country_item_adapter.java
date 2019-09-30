@@ -57,7 +57,7 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
         CountryVO item = items.get(position); //리사이클러뷰에서 몇번째 아이템이 지금 보여야되는시점이다 알려주기위해
         viewHolder.setItem(item); //그거를 홀더에넣어서 뷰홀더가 데이터를 알 수 있게되서 뷰홀더에 들어가있는 뷰에다가 데이터 설정할 수 있음
         //클릭리스너
-        viewHolder.setOnItemClickListener(listener);
+       // viewHolder.setOnItemClickListener(listener);
 
     }
 
@@ -104,7 +104,7 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (listener != null) {
-                        listener.onItemClick(Country_item_adapter.this, itemView, position);
+                        //listener.onItemClick(Country_item_adapter.this, itemView, position);
                     }
                 }
             });
