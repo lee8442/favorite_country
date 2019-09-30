@@ -32,7 +32,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 int position = getAdapterPosition();
                 if(listener != null ){
-                    listener.onItemClick(ViewHolder.this, itemView, position);
+                   // listener.onItemClick(ViewHolder.this, itemView, position);
                 }
             }
         });

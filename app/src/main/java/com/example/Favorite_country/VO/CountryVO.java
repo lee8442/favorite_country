@@ -3,10 +3,10 @@ package com.example.Favorite_country.VO;
 public class CountryVO {
     private String country; // 나라명
     private String country_eng; // 영문 나라명
-    private String flag; // 국기
+    private int flag; // 국기
     private String capital; // 수도
 
-    public CountryVO(String country, String country_eng, String flag, String capital) {
+    public CountryVO(String country, String country_eng, int flag, String capital) {
         this.country = country;
         this.country_eng = country_eng;
         this.flag = flag;
@@ -29,11 +29,11 @@ public class CountryVO {
         this.country_eng = country_eng;
     }
 
-    public String getFlag() {
+    public int getFlag() {
         return flag;
     }
 
-    public void setFlag(String flag) {
+    public void setFlag(int flag) {
         this.flag = flag;
     }
 

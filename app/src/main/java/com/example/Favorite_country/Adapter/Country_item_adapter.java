@@ -4,22 +4,76 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.Glide;
+import com.example.Favorite_country.MainActivity;
 import com.example.Favorite_country.R;
 import com.example.Favorite_country.VO.CountryVO;
-//import com.example.Favorite_country.ViewHolder.ViewHolder;
 
 import java.util.ArrayList;
 
 
 public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adapter.ViewHolder> {
-    Context context;
+
+    private ArrayList<CountryVO> items;
+
+    // 아이템 뷰를 저장하는 뷰홀더 클래스.
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView country; // 나라명
+        private TextView country_eng; // 영문 나라명
+        private ImageView flag; // 국기
+        private TextView capital; // 수도
+
+        ViewHolder(View itemView) {
+            super(itemView) ;
+
+            // 뷰 객체에 대한 참조. (hold strong reference)
+            country = itemView.findViewById(R.id.country);
+            country_eng = itemView.findViewById(R.id.country_eng);
+            flag = itemView.findViewById(R.id.flag);
+            capital = itemView.findViewById(R.id.capital);
+        }
+    }
+
+    public Country_item_adapter(ArrayList<CountryVO> list) {
+        items = list;
+    }
+
+    // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
+    @Override
+    public Country_item_adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext() ;
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
+
+        View view = inflater.inflate(R.layout.country_item, parent, false) ;
+        Country_item_adapter.ViewHolder vh = new Country_item_adapter.ViewHolder(view) ;
+
+        return vh ;
+    }
+
+    // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
+    @Override
+    public void onBindViewHolder(Country_item_adapter.ViewHolder holder, int position) {
+        CountryVO CountryVO = items.get(position) ;
+
+        // Glide
+        Glide.with(holder.itemView.getContext()).load(R.drawable.ic_launcher_background).into(holder.flag);
+
+        holder.country.setText(CountryVO.getCountry()) ;
+        holder.country_eng.setText(CountryVO.getCountry_eng()) ;
+        holder.capital.setText(CountryVO.getCapital()) ;
+    }
+
+    // getItemCount() - 전체 데이터 갯수 리턴.
+    @Override
+    public int getItemCount() {
+        return items.size() ;
+    }
+
+    /*Context context;
 
     //리스트뷰에서는 아이템을 위한 뷰를 보관하는데 이거는 데이터만 보관한다.
     ArrayList<CountryVO> items = new ArrayList<CountryVO>();
@@ -121,5 +175,5 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
         public void setOnItemClickListener(AdapterView.OnItemClickListener listener) {
             this.listener = listener;
         }
-    }
+    }*/
 }
