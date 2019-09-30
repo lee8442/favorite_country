@@ -1,4 +1,4 @@
-package com.example.favorite_country;
+package com.example.Favorite_country;
 
 import org.junit.Test;
 
