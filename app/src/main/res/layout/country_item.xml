@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/relativeParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/border">
@@ -18,55 +20,55 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
 
-        <TextView
-            android:id="@+id/country"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp"
-            android:layout_toRightOf="@id/flag"
-            android:text="@string/country" />
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/flag">
 
-        <TextView
-            android:id="@+id/country_eng"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/country"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_toRightOf="@id/country"
-            android:text="@string/country_eng" />
+            <TextView
+                android:id="@+id/capital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/continent"
+                android:layout_alignParentTop="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@id/continent"
+                android:text="@string/capital" />
 
-        <TextView
-            android:id="@+id/capital"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/country"
-            android:layout_alignLeft="@id/country"
-            android:layout_marginRight="10dp"
-            android:text="@string/capital" />
+            <TextView
+                android:id="@+id/continent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/country"
+                android:layout_alignLeft="@id/country"
+                android:text="@string/continent" />
+
+            <TextView
+                android:id="@+id/country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/country"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </RelativeLayout>
 
         <Button
             android:id="@+id/country_info_btn"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/country_info_btn" />
+            android:layout_marginRight="12dp"
+            android:background="@drawable/btn_img"
+            style="?android:attr/borderlessButtonStyle" />
 
-        <TextView
-            android:id="@+id/continent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/capital"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_toRightOf="@id/capital"
-            android:text="@string/continent" />
     </RelativeLayout>
 
 </LinearLayout>

@@ -25,7 +25,6 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView country; // 나라명
-        private TextView country_eng; // 영문 나라명
         private ImageView flag; // 국기
         private TextView capital; // 수도
         private TextView continent; // 대륙
@@ -35,7 +34,6 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
             super(itemView) ;
 
             country = itemView.findViewById(R.id.country);
-            country_eng = itemView.findViewById(R.id.country_eng);
             flag = itemView.findViewById(R.id.flag);
             capital = itemView.findViewById(R.id.capital);
             continent = itemView.findViewById(R.id.continent);
@@ -57,8 +55,11 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
             country_info_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listener != null) {
-                        listener.onBtnClick();
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        if (listener != null) {
+                            listener.onBtnClick(position);
+                        }
                     }
                 }
             });
@@ -67,7 +68,7 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
-        void onBtnClick();
+        void onBtnClick(int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -99,8 +100,7 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
 
         // Glide
         Glide.with(holder.itemView.getContext()).load(drawableResourceId).into(holder.flag);
-        holder.country.setText(holder.country.getText() + CountryVO.getCountry());
-        holder.country_eng.setText(holder.country_eng.getText() + CountryVO.getCountry_eng());
+        holder.country.setText(CountryVO.getCountry() + "(" + CountryVO.getCountry_eng() + ")");
         holder.capital.setText(holder.capital.getText() + CountryVO.getCapital());
         holder.continent.setText(holder.continent.getText() + CountryVO.getContinent());
     }
@@ -109,10 +109,6 @@ public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adap
     @Override
     public int getItemCount() {
         return items.size();
-    }
-
-    public ArrayList<CountryVO> getItemList() {
-        return items;
     }
 
     // Glide drawable 이미지 경로 가져오기

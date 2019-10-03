@@ -52,15 +52,19 @@ public class CountryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter) ;
 
         adapter.setOnItemClickListener(new Country_item_adapter.OnItemClickListener() {
+            // 선호 국가 추가
             @Override
             public void onItemClick(View view, int position){
                 String country = list.get(position).getCountry();
                 Toast.makeText(getApplicationContext(),"선호 국가(" + country + ") 추가되었습니다.",Toast.LENGTH_SHORT).show();
             }
 
+            // 상세 정보 페이지 전환
             @Override
-            public void onBtnClick() {
+            public void onBtnClick(int position) {
+                CountryVO selectCountry = list.get(position);
                 Intent intent = new Intent(getApplicationContext(), CountryInfoActivity.class);
+                intent.putExtra("selectCountry", selectCountry); // 선택된 국가 정보 전달
                 startActivity(intent);
             }
         });

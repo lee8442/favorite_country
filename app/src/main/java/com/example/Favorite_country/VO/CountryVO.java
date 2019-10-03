@@ -1,18 +1,22 @@
 package com.example.Favorite_country.VO;
 
-public class CountryVO {
+import java.io.Serializable;
+
+public class CountryVO implements Serializable {
     private String country; // 나라명
     private String country_eng; // 영문 나라명
     private String flag; // 국기
     private String capital; // 수도
     private String continent; // 대륙
+    private String language; // 언어
 
-    public CountryVO(String country, String country_eng, String flag, String capital, String continent) {
+    public CountryVO(String country, String country_eng, String flag, String capital, String continent, String language) {
         this.country = country;
         this.country_eng = country_eng;
         this.flag = flag;
         this.capital = capital;
         this.continent = continent;
+        this.language = language;
     }
 
     public String getCountry() {
@@ -53,5 +57,13 @@ public class CountryVO {
 
     public void setContinent(String continent) {
         this.continent = continent;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }
