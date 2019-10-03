@@ -26,7 +26,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         flag = itemView.findViewById(R.id.flag);
         capital = itemView.findViewById(R.id.capital);
 
-        //아이템 클릭이벤트처리
+        // 아이템 클릭이벤트처리
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,14 +38,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    //setItem 메소드는 CountryVO 객체를 전달받아 뷰홀더 안에 있는 뷰에 데이터를 설정하는 역할을 합니다.
+    // setItem 메소드는 CountryVO 객체를 전달받아 뷰홀더 안에 있는 뷰에 데이터를 설정하는 역할을 합니다.
     public void setItem(CountryVO item) {
         country.setText(item.getCountry());
         country_eng.setText(item.getCountry_eng());
         capital.setText(item.getCapital());
     }
 
-    //클릭이벤트처리
+    // 클릭이벤트처리
     public void setOnItemClickListener(OnItemClickListener listener){
         this.listener = listener;
     }

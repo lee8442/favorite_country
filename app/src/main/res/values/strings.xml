@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">favorite_country</string>
-    <string name="country">국가명</string>
-    <string name="country_eng">국가 영문명</string>
-    <string name="capital">수도</string>
-    <string name="country_add_btn">추가</string>
+    <string name="country_add">선호 국가 추가</string>
+    <string name="country">국가명 :&#160;</string>
+    <string name="country_eng">영문명 :&#160;</string>
+    <string name="capital">수도 :&#160;</string>
+    <string name="continent">대륙 :&#160;</string>
+    <string name="country_info_btn">more</string>
+    <string name="country_info">국가 상세정보</string>
 </resources>

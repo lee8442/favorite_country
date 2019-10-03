@@ -3,14 +3,16 @@ package com.example.Favorite_country.VO;
 public class CountryVO {
     private String country; // 나라명
     private String country_eng; // 영문 나라명
-    private int flag; // 국기
+    private String flag; // 국기
     private String capital; // 수도
+    private String continent; // 대륙
 
-    public CountryVO(String country, String country_eng, int flag, String capital) {
+    public CountryVO(String country, String country_eng, String flag, String capital, String continent) {
         this.country = country;
         this.country_eng = country_eng;
         this.flag = flag;
         this.capital = capital;
+        this.continent = continent;
     }
 
     public String getCountry() {
@@ -29,11 +31,11 @@ public class CountryVO {
         this.country_eng = country_eng;
     }
 
-    public int getFlag() {
+    public String getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(String flag) {
         this.flag = flag;
     }
 
@@ -43,5 +45,13 @@ public class CountryVO {
 
     public void setCapital(String capital) {
         this.capital = capital;
+    }
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
     }
 }

@@ -15,6 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_1 = "country_eng";
     public static final String COL_2 = "flag";
     public static final String COL_3 = "capital";
+    public static final String COL_4 = "continent";
 
     private SQLiteDatabase db;
 
@@ -40,8 +41,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 + IDX + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COL_0 + " TEXT, "
                 + COL_1 + " TEXT, "
-                + COL_2 + " INT, "
-                + COL_3 + " TEXT "
+                + COL_2 + " TEXT, "
+                + COL_3 + " TEXT, "
+                + COL_4 + " TEXT "
                 + ")");
     }
 
