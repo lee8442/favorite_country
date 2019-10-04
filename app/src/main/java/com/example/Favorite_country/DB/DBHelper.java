@@ -17,7 +17,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_3 = "capital";
     public static final String COL_4 = "continent";
     public static final String COL_5 = "language";
-
+    public static final String COL_6 = "currency";
+    public static final String COL_7 = "religion";
 
     private SQLiteDatabase db;
 
@@ -46,7 +47,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 + COL_2 + " TEXT, "
                 + COL_3 + " TEXT, "
                 + COL_4 + " TEXT, "
-                + COL_5 + " TEXT "
+                + COL_5 + " TEXT, "
+                + COL_6 + " TEXT, "
+                + COL_7 + " TEXT "
                 + ")");
     }
 

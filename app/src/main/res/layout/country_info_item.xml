@@ -12,7 +12,7 @@
         <ImageView
             android:id="@+id/recent_visitor"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"

@@ -9,14 +9,18 @@ public class CountryVO implements Serializable {
     private String capital; // 수도
     private String continent; // 대륙
     private String language; // 언어
+    private String currency; // 통화
+    private String religion; // 종교
 
-    public CountryVO(String country, String country_eng, String flag, String capital, String continent, String language) {
+    public CountryVO(String country, String country_eng, String flag, String capital, String continent, String language, String currency, String religion) {
         this.country = country;
         this.country_eng = country_eng;
         this.flag = flag;
         this.capital = capital;
         this.continent = continent;
         this.language = language;
+        this.currency = currency;
+        this.religion = religion;
     }
 
     public String getCountry() {
@@ -65,5 +69,21 @@ public class CountryVO implements Serializable {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getReligion() {
+        return religion;
+    }
+
+    public void setReligion(String religion) {
+        this.religion = religion;
     }
 }
