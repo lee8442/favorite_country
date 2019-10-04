@@ -8,4 +8,6 @@
     <string name="language">공용어 :&#160;</string>
     <string name="country_info_btn">more</string>
     <string name="country_info">국가 상세정보</string>
+    <string name="country_warning">국가 여행경보 확인하기</string>
+    <string name="country_add_btn">Add Country</string>
 </resources>

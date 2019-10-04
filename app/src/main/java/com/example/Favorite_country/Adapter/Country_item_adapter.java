@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class Country_item_adapter extends RecyclerView.Adapter<Country_item_adapter.ViewHolder> {
 
-    private ArrayList<CountryVO> items;
     private Context context;
     private OnItemClickListener listener;
+    private ArrayList<CountryVO> items;
 
     // 아이템뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
