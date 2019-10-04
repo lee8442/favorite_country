@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/flag"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:layout_alignBaseline="@id/relativeChild"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp" />
@@ -64,7 +64,7 @@
                 android:id="@+id/country"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="30dp"
                 android:text="@string/country"
                 android:textColor="#000000"
                 android:textSize="20sp" />
@@ -75,7 +75,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/country"
                 android:layout_alignLeft="@id/country"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/continent"
                 android:textSize="16sp" />
@@ -87,6 +86,7 @@
                 android:layout_below="@id/continent"
                 android:layout_alignLeft="@id/continent"
                 android:layout_toRightOf="@id/continent"
+                android:layout_marginBottom="10dp"
                 android:text="@string/capital"
                 android:textSize="16sp" />
 
@@ -96,19 +96,44 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/capital"
                 android:layout_alignLeft="@id/continent"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/language"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/exchange_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/language"
+                android:text="@string/exchange_rate" />
+
         </RelativeLayout>
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/relativeParent" />
+        app:layout_constraintTop_toBottomOf="@id/relativeParent">
+
+        <TextView
+            android:id="@+id/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/recent"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

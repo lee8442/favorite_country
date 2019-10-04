@@ -15,17 +15,18 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.Favorite_country.API.ExchangeRateApi;
 import com.example.Favorite_country.Adapter.Country_info_item_adapter;
 import com.example.Favorite_country.VO.CountryInfoVO;
 import com.example.Favorite_country.VO.CountryVO;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class CountryInfoActivity extends AppCompatActivity {
 
     private CountryVO CountryVO;
     private CountryInfoVO CountryInfoVO;
-    private ArrayList<CountryInfoVO> list;
     private Country_info_item_adapter adapter;
 
     private TextView country; // 나라명
@@ -33,8 +34,9 @@ public class CountryInfoActivity extends AppCompatActivity {
     private TextView capital; // 수도
     private TextView continent; // 대륙
     private TextView language; // 공용어
+    private TextView exchange_rate; // 환율
     private TextView country_warning; // 국가 여행경보
-    private Button country_add_btn; // 선호 국가 추가 버트
+    private Button country_add_btn; // 선호 국가 추가 버튼
     private RecyclerView recyclerView;
 
     @Override
@@ -65,6 +67,7 @@ public class CountryInfoActivity extends AppCompatActivity {
         language = findViewById(R.id.language);
         country_warning = findViewById(R.id.country_warning);
         country_add_btn = findViewById(R.id.country_add_btn);
+        exchange_rate = findViewById(R.id.exchange_rate);
 
         Log.d("CountryInfoAct", "선택된 국가 : " + CountryVO.getCountry());
 
@@ -76,6 +79,7 @@ public class CountryInfoActivity extends AppCompatActivity {
         capital.setText(capital.getText() + CountryVO.getCapital());
         continent.setText(continent.getText() + CountryVO.getContinent());
         language.setText(language.getText() + CountryVO.getLanguage());
+        exchange_rate.setText(exchange_rate.getText() + getExchangeRate());
 
         country_warning.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +106,20 @@ public class CountryInfoActivity extends AppCompatActivity {
         return drawableResourceId;
     }
 
+    // 환율 정보 가져오기 한국 수출입은행 API
+    public String getExchangeRate() {
+        String result = "";
+        try {
+            result = new ExchangeRateApi().execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
     public void setRecyclerView() {
         // recyclerView에 표시할 데이터 리스트 생성
         ArrayList<CountryInfoVO> list = new ArrayList<CountryInfoVO>();
@@ -117,7 +135,7 @@ public class CountryInfoActivity extends AppCompatActivity {
                     list.add(CountryInfoVO);
                     break;
                 case 2:
-                    CountryInfoVO = new CountryInfoVO("korea");
+                    CountryInfoVO = new CountryInfoVO("japan");
                     list.add(CountryInfoVO);
                     break;
                 case 3:
@@ -140,7 +158,7 @@ public class CountryInfoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 4)) ;
 
         // recyclerView에 Country_info_item_adapter 객체 지정
-        Country_info_item_adapter adapter = new Country_info_item_adapter(list);
+        adapter = new Country_info_item_adapter(list);
         recyclerView.setAdapter(adapter);
 
         adapter.setOnItemClickListener(new Country_info_item_adapter.OnItemClickListener() {

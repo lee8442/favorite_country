@@ -23,7 +23,7 @@ public class Country_m {
     public void createTable() {
         DBHelper.onCreate(db);
         if(!isData()) {
-            String sql = "insert into " + TABLE_NAME + "(country, country_eng, flag, capital, continent, language) select '한국', 'Korea', 'korea', '서울', '아시아', '한국어' " +
+            String sql = "insert into " + TABLE_NAME + "(country, country_eng, flag, capital, continent, language) select '일본', 'Japan', 'japan', '도쿄', '아시아', '일본어' " +
                     "union all select '프랑스', 'France', 'france', '파리', '유럽', '프랑스어' union all select '미국', 'USA', 'usa', '워싱턴 D.C.', '북아메리카', '영어' " +
                     "union all select '브라질', 'Brazil', 'brazil', '브라질리아', '남아메리카', '포르투갈어' union all select '가나', 'Ghana', 'ghana', '아크라', '아프리카', '영어' " +
                     "union all select '호주', 'Australia', 'australia', '캔버라', '오세아니아', '영어';";
